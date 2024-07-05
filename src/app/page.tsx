@@ -34,6 +34,10 @@ export default function Home() {
         <br></br><br></br>
         If you have any questions, please contact: tapestry.gallery.nyc@gmail.com
       </p>
+
+      {/* <img src="https://drive.google.com/uc?export=download&id=1BPVT40O8iShnVJ5Il5cfmtYvrg0j7iek"></img> */}
+      <img src="https://drive.google.com/uc?export=view&id=1BPVT40O8iShnVJ5Il5cfmtYvrg0j7iek" alt="Image Description"></img>
+
     </div>
   );
 }
