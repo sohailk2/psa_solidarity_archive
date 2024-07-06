@@ -18,6 +18,10 @@ import {
     DialogClose
 } from "@/components/ui/dialog"
 
+interface Props {
+    works: [RetrievalObject]
+}
+
 interface RetrievalObject {
     url: string,
     location: string,
@@ -48,7 +52,7 @@ const getDisplayLinkFromShareableLink = (shareUrl: string) => {
     return shareUrl.replace("open?", "uc?export=view&")
 }
 
-const ImageFigure = (imageObject) => {
+const ImageFigure = (imageObject: RetrievalObject) => {
 
     const viewURL = getDisplayLinkFromShareableLink(imageObject.url)
     return (
@@ -83,7 +87,7 @@ const ImageFigure = (imageObject) => {
     )
 }
 
-export default function Gallery(props) {
+export default function Gallery(props : Props) {
 
     // console.log(props.works)
 
