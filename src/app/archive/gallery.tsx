@@ -19,10 +19,10 @@ import {
 } from "@/components/ui/dialog"
 
 interface Props {
-    works: [RetrievalObject]
+    works: RetrievalObject[]
 }
 
-interface RetrievalObject {
+export interface RetrievalObject {
     url: string,
     location: string,
     date: string
