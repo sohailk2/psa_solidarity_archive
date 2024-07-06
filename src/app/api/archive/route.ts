@@ -11,7 +11,7 @@ const SCOPES = [
 // Initialize auth - see https://theoephraim.github.io/node-google-spreadsheet/#/guides/authentication
 const jwt = new JWT({
     email: process.env.GOOGLE_EMAIL,
-    key: process.env.GOOGLE_SECRET_KEY.replace(/\\n/g, '\n'),
+    key: process.env.GOOGLE_SECRET_KEY!.replace(/\\n/g, '\n'),
     scopes: SCOPES,
 });
 const doc = new GoogleSpreadsheet("12VQyg0P9Q3k5PIhh2YK8kiL8mO8WnVmEXwMjSm7gGxs", jwt);
