@@ -5,7 +5,7 @@ export default async function Archive() {
     const response = await fetch('https://psa-solidarity-archive.vercel.app/api/archive/')
 
     // TODO: figure this out -> vercel thing with backend and client deployed at same time
-    // deploy next js backend route seperately vercel
+    // deploy next js backend route seperately vercel, deploy it twice?
     let works: RetrievalObject[] = []
     try {
         const res = await response.json()
