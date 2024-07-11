@@ -23,6 +23,7 @@ interface RetrievalObject {
     description: string
 }
 
+
 export async function GET() {
 
     await doc.loadInfo(); // loads document properties and worksheets
@@ -41,7 +42,7 @@ export async function GET() {
         for (const url of urls) {
             outputData.push(
                 {
-                    url: url,
+                    url: url.replace("open?", "uc?export=view&"),
                     location: row.get('Specific Location (where the photo(s) were taken : Neighborhood, City, State, Country)'),
                     date: row.get('Date picture was taken'),
                     description: row.get('Short description of the image(s)'),

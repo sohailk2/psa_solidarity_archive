@@ -80,13 +80,13 @@ const ImageFigure = (imageObject: RetrievalObject) => {
                         // src='https://drive.google.com/uc?export=view&id=1PIAdMX8vh00yO4Yf4U0R9WQfFv3-diNT'
                         // for thumbnail: display this -> speed up load times for the website
                         // https://stackoverflow.com/questions/25648388/permanent-links-to-thumbnails-in-google-drive-api
-                        src={viewURL}
+                        src={imageObject.url}
                         alt={`${imageObject.url}`}
                         className="absolute top-0 left-0 w-full h-full object-cover"
                         width={300}
                         height={300}
                     />,
-                    viewURL
+                    imageObject.url
                 )}
             </div>
             <figcaption className="pt-2 text-xs text-muted-foreground">
