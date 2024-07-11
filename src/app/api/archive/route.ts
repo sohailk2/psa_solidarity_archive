@@ -33,18 +33,34 @@ export async function GET() {
     // console.log(sheet.rowCount);
 
     const rows = await sheet.getRows()
+
+    let outputData = []
+
+    for (const row of rows) {
+        const urls = row.get('Please upload your image here').split(',')
+        for (const url of urls) {
+            outputData.push(
+                {
+                    url: url,
+                    location: row.get('Specific Location (where the photo(s) were taken : Neighborhood, City, State, Country)'),
+                    date: row.get('Date picture was taken'),
+                    description: row.get('Short description of the image(s)'),
+                }
+            )
+        }
+        
+    }
     const data = rows.map(row => {
+
         return (
             {
                 url: row.get('Please upload your image here'),
                 location: row.get('Specific Location (where the photo(s) were taken : Neighborhood, City, State, Country)'),
                 date: row.get('Date picture was taken'),
                 description: row.get('Short description of the image(s)'),
-                hello: 'hi'
             }
         )
     })
 
-
-    return Response.json({ title: sheet.title, data: data })
+    return Response.json({ title: sheet.title, data: outputData })
 }
