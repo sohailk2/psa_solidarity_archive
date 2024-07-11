@@ -4,8 +4,8 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
-
-import * as React from "react"
+import { Skeleton } from "@/components/ui/skeleton"
+import { useState } from 'react';
 
 import {
     Dialog,
@@ -29,19 +29,34 @@ export interface RetrievalObject {
     description: string
 }
 
+
+
 const dialogBox = (triggerImage: React.ReactElement, fullImageSrc: string) => {
+    const [viewSkeleton, setSkeletonState] = useState('')
+
     return (
         // Should make this transparent so it looks good and then don't need to worry about the sizing? also remove margins?
         <Dialog>
             <DialogTrigger asChild>{triggerImage}</DialogTrigger>
             <DialogContent className="h-5/6 min-w-3.5 w-11/12">
                 <div className="">
+
+                    {/* weird, image just goes over this loader after i loads */}
+                    <div className="flex flex-col space-y-3" style={{display: viewSkeleton}}>
+                        <Skeleton className="h-[125px] w-[250px] rounded-xl" />
+                        <div className="space-y-2">
+                            <Skeleton className="h-4 w-[250px]" />
+                            <Skeleton className="h-4 w-[200px]" />
+                        </div>
+                    </div>
                     <Image
                         src={fullImageSrc}
                         alt="Full size image"
                         layout="fill"
                         objectFit="contain"
+                        onLoad={(e) => setSkeletonState('none')}
                     />
+
                 </div>
             </DialogContent>
         </Dialog>
@@ -63,6 +78,8 @@ const ImageFigure = (imageObject: RetrievalObject) => {
                         // src={imageObject.url}
                         // Drive Link: https://github.com/orgs/community/discussions/86986#discussioncomment-8118482
                         // src='https://drive.google.com/uc?export=view&id=1PIAdMX8vh00yO4Yf4U0R9WQfFv3-diNT'
+                        // for thumbnail: display this -> speed up load times for the website
+                        // https://stackoverflow.com/questions/25648388/permanent-links-to-thumbnails-in-google-drive-api
                         src={viewURL}
                         alt={`${imageObject.url}`}
                         className="absolute top-0 left-0 w-full h-full object-cover"
@@ -87,7 +104,7 @@ const ImageFigure = (imageObject: RetrievalObject) => {
     )
 }
 
-export default function Gallery(props : Props) {
+export default function Gallery(props: Props) {
 
     // console.log(props.works)
 
