@@ -42,7 +42,7 @@ export async function GET() {
         for (const url of urls) {
             outputData.push(
                 {
-                    url: url.replace("open?", "uc?export=view&"),
+                    url: url.replace("open?", "uc?export=view&").trim(),
                     location: row.get('Specific Location (where the photo(s) were taken : Neighborhood, City, State, Country)'),
                     date: row.get('Date picture was taken'),
                     description: row.get('Short description of the image(s)'),
