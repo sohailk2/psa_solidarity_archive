@@ -39,7 +39,8 @@ export async function GET() {
                 url: row.get('Please upload your image here'),
                 location: row.get('Specific Location (where the photo(s) were taken : Neighborhood, City, State, Country)'),
                 date: row.get('Date picture was taken'),
-                description: row.get('Short description of the image(s)')
+                description: row.get('Short description of the image(s)'),
+                hello: 'hi'
             }
         )
     })
