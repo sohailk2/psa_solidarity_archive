@@ -27,7 +27,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <NavBar />
-        <main className="flex min-h-screen flex-col justify-between pt-10 px-80"> {/* could add items-center class to center everything? */}
+        <main className="flex min-h-screen flex-col justify-between pt-10 px-4 sm:px-10 md:px-20 lg:px-40 xl:px-80"> {/* could add items-center class to center everything? */}
           {children}
         </main>
       </body>

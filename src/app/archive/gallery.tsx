@@ -38,7 +38,7 @@ const DialogBox = (triggerImage: React.ReactElement, fullImageSrc: string) => {
         // Should make this transparent so it looks good and then don't need to worry about the sizing? also remove margins?
         <Dialog>
             <DialogTrigger asChild>{triggerImage}</DialogTrigger>
-            <DialogContent className="h-5/6 min-w-3.5 w-11/12">
+            <DialogContent className="h-5/6 min-w-3.5 w-11/12 sm:w-3/4 md:w-2/3 lg:w-1/2">
                 <div className="">
 
                     {/* weird, image just goes over this loader after i loads */}
@@ -114,7 +114,7 @@ export default function Gallery(props: Props) {
 
     return (
         <ScrollArea>
-            <div className="grid grid-cols-5 gap-4 p-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-4">
                 {
                     props.works.map((work) => {
                         return (
