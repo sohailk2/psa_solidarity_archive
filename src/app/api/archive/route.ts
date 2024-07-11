@@ -24,7 +24,7 @@ interface RetrievalObject {
 }
 
 
-export async function GET() {
+export async function POST() {
 
     await doc.loadInfo(); // loads document properties and worksheets
     // console.log(doc.title);
