@@ -31,7 +31,7 @@ export interface RetrievalObject {
 
 
 
-const dialogBox = (triggerImage: React.ReactElement, fullImageSrc: string) => {
+const DialogBox = (triggerImage: React.ReactElement, fullImageSrc: string) => {
     const [viewSkeleton, setSkeletonState] = useState('')
 
     return (
@@ -73,7 +73,7 @@ const ImageFigure = (imageObject: RetrievalObject) => {
     return (
         <figure key={imageObject.url} className="shrink-0 p-5" style={{ backgroundColor: "white" }}>
             <div className="relative w-full h-0 pb-[100%] overflow-hidden">
-                {dialogBox(
+                {DialogBox(
                     <Image
                         // src={imageObject.url}
                         // Drive Link: https://github.com/orgs/community/discussions/86986#discussioncomment-8118482
