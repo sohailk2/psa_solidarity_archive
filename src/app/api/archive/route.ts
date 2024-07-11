@@ -50,17 +50,6 @@ export async function GET() {
         }
         
     }
-    const data = rows.map(row => {
-
-        return (
-            {
-                url: row.get('Please upload your image here'),
-                location: row.get('Specific Location (where the photo(s) were taken : Neighborhood, City, State, Country)'),
-                date: row.get('Date picture was taken'),
-                description: row.get('Short description of the image(s)'),
-            }
-        )
-    })
 
     return Response.json({ title: sheet.title, data: outputData })
 }
