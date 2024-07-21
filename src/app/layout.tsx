@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <main className=" main-container flex min-h-screen flex-col justify-center pt-10 px-4 sm:px-10 md:px-20 lg:px-40 xl:px-80">
+\        <main className="main-container flex  flex-col justify-center pt-10 px-4 sm:px-10 md:px-20 lg:px-40 xl:px-96 ">
           <Image
             className="logo"
             src={logo}
