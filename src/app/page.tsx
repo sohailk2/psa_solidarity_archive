@@ -3,6 +3,12 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import Link from "next/link";
 
 export default function Home() {
@@ -46,6 +52,47 @@ export default function Home() {
           tapestry.gallery.nyc@gmail.com
         </Link>
       </p>
+
+      <h1 className=" mb-6 mt-6 font-bold text-xl primary-foreground">
+        Frequently Asked Questions
+      </h1>
+      <div className="collapsible-container">
+        <Accordion type="single" className=" mb-4 w-full">
+          <AccordionItem  className="mb-4" value="item-1">
+            <AccordionTrigger className=" w-full border-slate-500 h-15 w-84 px-4 py-2 bg-light text-sm">
+              Can I submit more than one picture?
+            </AccordionTrigger>
+            <AccordionContent>
+              Yes. Feel free to submit as many pictures as you may have with
+              details of the location and description.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem  className="mb-4" value="item-2">
+            <AccordionTrigger className=" w-full border-slate-500 h-15 w-84 px-4 py-2 bg-light text-sm">
+              Will I be notified if my pictures are used?
+            </AccordionTrigger>
+            <AccordionContent>
+              Yes. All submissions will be notified via the email you provided
+              with your Google form submission.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem  className="mb-4" value="item-3">
+            <AccordionTrigger className=" w-full border-slate-500  h-15 w-84 px-4 py-2 bg-light text-sm">
+              Are video submissions accepted?
+            </AccordionTrigger>
+            <AccordionContent>Yes.</AccordionContent>
+          </AccordionItem>
+          <AccordionItem  className="mb-4" value="item-4">
+            <AccordionTrigger className=" w-full border-slate-500  h-15 w-84 px-4 py-2 bg-light text-sm">
+              Can I submit original flyer/sticker designs?
+            </AccordionTrigger>
+            <AccordionContent>
+              At this time we are only collecting pictures in public areas
+              rather than designs of flyers.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
     </div>
   );
 }

@@ -82,6 +82,12 @@
   height: auto;
 }
 
+.collapsible-container {
+  align-items: center;
+  padding-right: 55%;
+}
+
+
 @layer base {
   * {
     @apply border-border;

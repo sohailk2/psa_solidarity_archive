@@ -21,9 +21,6 @@ export default function NavBar() {
               submit
             </Link>
           </TabsTrigger>
-          <TabsTrigger value="faq">
-            <Link href="/faq">faq</Link>
-          </TabsTrigger>
         </TabsList>
       </Tabs>
     </div>
