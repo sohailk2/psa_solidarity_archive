@@ -10,18 +10,21 @@ export default function NavBar() {
                 <Button className="mx-1">Submit</Button> */}
       <Tabs defaultValue="account" className="max-w-[400px]">
         <TabsList>
-          <TabsTrigger value="home">
-            <Link href="/">home</Link>
+          <TabsTrigger value="about">
+            <Link href="/">about</Link>
           </TabsTrigger>
           <TabsTrigger value="archive">
             <Link href="/archive">archive</Link>
           </TabsTrigger>
           <TabsTrigger value="submit">
-            <Link href="/submit">submit</Link>
+            <Link href="https://forms.gle/HmCyG4P1Ytbg9uSG9" target="_blank">
+              submit
+            </Link>
+          </TabsTrigger>
+          <TabsTrigger value="faq">
+            <Link href="/faq">faq</Link>
           </TabsTrigger>
         </TabsList>
-        {/* <TabsContent value="account">Make changes to your account here.</TabsContent>
-                <TabsContent value="password">Change your password here.</TabsContent> */}
       </Tabs>
     </div>
   );

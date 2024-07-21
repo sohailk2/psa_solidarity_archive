@@ -42,7 +42,7 @@ export default function Home() {
         <br></br>
         <br></br>
         If you have any questions, please contact:
-        <Link href={`mailto:tapestry.gallery.nyc@gmail.com`}>
+        <Link href="mailto:tapestry.gallery.nyc@gmail.com">
           tapestry.gallery.nyc@gmail.com
         </Link>
       </p>

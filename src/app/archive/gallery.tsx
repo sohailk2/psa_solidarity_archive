@@ -1,22 +1,10 @@
 "use client";
 import Image from "next/image";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-  DialogFooter,
-  DialogClose,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
 interface Props {
   works: RetrievalObject[];
@@ -71,8 +59,8 @@ const ImageFigure = (imageObject: RetrievalObject) => {
   return (
     <figure
       key={imageObject.url}
-      className="shrink-0 p-5"
-      style={{ backgroundColor: "white" }}
+      className="relative w-full  pb-[25%] p-4 rounded-md overflow-hidden"
+      style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
     >
       <div className="relative w-full h-0 pb-[100%] overflow-hidden">
         {DialogBox(
@@ -93,12 +81,22 @@ const ImageFigure = (imageObject: RetrievalObject) => {
       </div>
       <figcaption className="pt-2 text-xs text-muted-foreground">
         Location{" "}
-        <div className="font-semibold text-foreground">
+        <div
+          className=" text-foreground"
+          style={{
+            fontSize: "clamp(0.5rem, 2vw + 0.5rem, .8rem)",
+          }}
+        >
           {imageObject.location}
         </div>
         <br></br>
         Description{" "}
-        <div className="font-semibold text-foreground">
+        <div
+          className=" text-foreground"
+          style={{
+            fontSize: "clamp(0.5rem, 2vw + 0.5rem, .8rem)",
+          }}
+        >
           {imageObject.description}
         </div>
       </figcaption>
@@ -111,10 +109,11 @@ export default function Gallery(props: Props) {
 
   // props.works.map((work) => {
   //     console.log(work.location)
-  // })
+  // })x
 
   return (
     <ScrollArea>
+      <h1>Number of Entries: {props.works.length} </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-4">
         {props.works.map((work) => {
           return ImageFigure(work);
