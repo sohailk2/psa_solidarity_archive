@@ -53,12 +53,20 @@ export default function Home() {
         </Link>
       </p>
 
-      <h1 className=" mb-6 mt-6 font-bold text-xl primary-foreground">
-        Frequently Asked Questions
-      </h1>
+      <div className="button  mb-6 mt-6 font-bold text-xl primary-foreground">
+        <button>
+          Frequently Asked Questions
+        </button>
+        <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+          <path
+            fill="none"
+            d="M325,18C228.7-8.3,118.5,8.3,78,21C22.4,38.4,4.6,54.6,5.6,77.6c1.4,32.4,52.2,54,142.6,63.7 c66.2,7.1,212.2,7.5,273.5-8.3c64.4-16.6,104.3-57.6,33.8-98.2C386.7-4.9,179.4-1.4,126.3,20.7"
+          />
+        </svg>
+      </div>
       <div className="collapsible-container">
-        <Accordion type="single" className=" mb-4 w-full">
-          <AccordionItem  className="mb-4" value="item-1">
+        <Accordion type="single" collapsible className=" mb-4 w-full">
+          <AccordionItem className="mb-4" value="item-1">
             <AccordionTrigger className=" w-full border-slate-500 h-15 w-84 px-4 py-2 bg-light text-sm">
               Can I submit more than one picture?
             </AccordionTrigger>
@@ -67,7 +75,7 @@ export default function Home() {
               details of the location and description.
             </AccordionContent>
           </AccordionItem>
-          <AccordionItem  className="mb-4" value="item-2">
+          <AccordionItem className="mb-4" value="item-2">
             <AccordionTrigger className=" w-full border-slate-500 h-15 w-84 px-4 py-2 bg-light text-sm">
               Will I be notified if my pictures are used?
             </AccordionTrigger>
@@ -76,13 +84,13 @@ export default function Home() {
               with your Google form submission.
             </AccordionContent>
           </AccordionItem>
-          <AccordionItem  className="mb-4" value="item-3">
+          <AccordionItem className="mb-4" value="item-3">
             <AccordionTrigger className=" w-full border-slate-500  h-15 w-84 px-4 py-2 bg-light text-sm">
               Are video submissions accepted?
             </AccordionTrigger>
             <AccordionContent>Yes.</AccordionContent>
           </AccordionItem>
-          <AccordionItem  className="mb-4" value="item-4">
+          <AccordionItem className="mb-4" value="item-4">
             <AccordionTrigger className=" w-full border-slate-500  h-15 w-84 px-4 py-2 bg-light text-sm">
               Can I submit original flyer/sticker designs?
             </AccordionTrigger>
@@ -96,3 +104,4 @@ export default function Home() {
     </div>
   );
 }
+

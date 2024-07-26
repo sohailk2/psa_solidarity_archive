@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
