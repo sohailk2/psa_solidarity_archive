@@ -1,18 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "./components/navigation/navbar";
-import { Inter as FontSans } from "next/font/google"
+import { Zen_Maru_Gothic } from "next/font/google";
+import logo from "./images/psa-logo.svg";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
 
-import { cn } from "@/lib/utils"
-
-const fontSans = FontSans({
+const font = Zen_Maru_Gothic({
+  weight: "400",
   subsets: ["latin"],
-  variable: "--font-sans",
-})
-
-const inter = Inter({ subsets: ["latin"] });
-
+});
 export const metadata: Metadata = {
   title: "Palestine Solidarity Archive",
   description: "todo here",
@@ -25,9 +22,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <NavBar />
-        <main className="flex min-h-screen flex-col justify-between pt-10 px-4 sm:px-10 md:px-20 lg:px-40 xl:px-80"> {/* could add items-center class to center everything? */}
+      <body className={font.className}>
+        <main className=" main-container flex min-h-screen flex-col justify-center pt-10 px-4 sm:px-10 md:px-20 lg:px-40 xl:px-80">
+          <Image
+            className="logo"
+            src={logo}
+            alt={"logo"}
+            style={{ width: "20rem" }}
+          />
+          <NavBar /> {/* could add items-center class to center everything? */}
           {children}
         </main>
       </body>
