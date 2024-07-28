@@ -16,16 +16,7 @@ export default function Home() {
     <div>
       <br></br>
       <p className="text-xl primary-foreground">
-        The
-        <HoverCard>
-          <HoverCardTrigger>
-            &nbsp;Palestine Solidarity Archive&nbsp;
-          </HoverCardTrigger>
-          <HoverCardContent>
-            can put stuff here, trying something
-          </HoverCardContent>
-        </HoverCard>
-        aims to preserve and document the history and memory of Palestinians,
+        The Palestine Solidarity Archive aims to preserve and document the history and memory of Palestinians,
         the resistance movement, and global expressions of solidarity through
         art, stickers, graffiti, and protests. By doing so, we seek to preserve
         collective memories of these injustices and genocides, along with the
@@ -54,16 +45,9 @@ export default function Home() {
       </p>
 
       <div className="button  mb-6 mt-6 font-bold text-xl primary-foreground">
-        <button>
-          Frequently Asked Questions
-        </button>
-        <svg viewBox="0 0 500 150" preserveAspectRatio="none">
-          <path
-            fill="none"
-            d="M325,18C228.7-8.3,118.5,8.3,78,21C22.4,38.4,4.6,54.6,5.6,77.6c1.4,32.4,52.2,54,142.6,63.7 c66.2,7.1,212.2,7.5,273.5-8.3c64.4-16.6,104.3-57.6,33.8-98.2C386.7-4.9,179.4-1.4,126.3,20.7"
-          />
-        </svg>
+        Frequently Asked Questions
       </div>
+
       <div className="collapsible-container">
         <Accordion type="single" collapsible className=" mb-4 w-full">
           <AccordionItem className="mb-4" value="item-1">
@@ -101,6 +85,7 @@ export default function Home() {
           </AccordionItem>
         </Accordion>
       </div>
+      
     </div>
   );
 }

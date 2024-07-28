@@ -146,7 +146,7 @@ strong {
   &:hover:after {
     content: "";
     position: absolute;
-    bottom: -0.005rem;
+    bottom: -0.215rem;
     left: -0.5rem;
     right: -0.5rem;
     height: 0.5rem;
