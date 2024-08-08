@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
-interface RetrievalObject {
+export interface RetrievalObject {
   url: string;
   location: string;
   date: string;
