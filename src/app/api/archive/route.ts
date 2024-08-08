@@ -22,6 +22,7 @@ interface RetrievalObject {
   location: string;
   date: string;
   description: string;
+  tags: string;
 }
 
 export async function POST() {
@@ -46,10 +47,10 @@ export async function POST() {
         ),
         date: row.get("Date picture was taken"),
         description: row.get("Short description of the image(s)"),
+        tags: row.get("Type of Submission"),
       });
     }
   }
-
   const count = outputData.length;
 
   return Response.json({ title: sheet.title, data: outputData, count: count });
