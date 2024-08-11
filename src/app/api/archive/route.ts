@@ -34,21 +34,26 @@ export async function POST() {
   // console.log(sheet.rowCount);
 
   const rows = await sheet.getRows();
+  // console.log(rows)
 
   let outputData = [];
 
   for (const row of rows) {
     const urls = row.get("Please upload your image here").split(",");
     for (const url of urls) {
-      outputData.push({
-        url: url.replace("open?", "uc?export=view&").trim(),
-        location: row.get(
-          "Specific Location (where the photo(s) were taken : Neighborhood, City, State, Country)"
-        ),
-        date: row.get("Date picture was taken"),
-        description: row.get("Short description of the image(s)"),
-        tags: row.get("Type of Submission"),
-      });
+
+      if (row.get('Hidden') == undefined) {
+        outputData.push({
+          url: url.replace("open?", "uc?export=view&").trim(),
+          location: row.get(
+            "Specific Location (where the photo(s) were taken : Neighborhood, City, State, Country)"
+          ),
+          date: row.get("Date picture was taken"),
+          description: row.get("Short description of the image(s)"),
+          tags: row.get("Type of Submission"),
+          hidden: row.get('Hidden')
+        });
+      }
     }
   }
   const count = outputData.length;
