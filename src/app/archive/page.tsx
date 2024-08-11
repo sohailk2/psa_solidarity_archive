@@ -6,6 +6,7 @@ export default async function Archive() {
     "https://psa-solidarity-archive.vercel.app/api/archive/",
     { method: "POST", next: { revalidate: 60 } }
   );
+  
   // const response = await fetch("http://localhost:3000/api/archive", {
   //   method: "POST",
   //   next: { revalidate: 10 },

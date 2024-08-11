@@ -88,7 +88,7 @@ const ImageFigure = (imageObject: RetrievalObject) => {
         Location{" "}
         <div
           className="text-foreground"
-          style={{ fontSize: "clamp(0.5rem, 2vw + 0.5rem, .8rem)" }}
+          style={{ fontSize: "clamp(0.5rem, 2vw + 0.5rem, .8rem)", height: '2.5em', textOverflow: 'ellipsis', overflow: 'hidden',  }}
         >
           {imageObject.location}
         </div>
@@ -96,7 +96,7 @@ const ImageFigure = (imageObject: RetrievalObject) => {
         Date{" "}
         <div
           className="text-foreground"
-          style={{ fontSize: "clamp(0.5rem, 2vw + 0.5rem, .8rem)" }}
+          style={{ fontSize: "clamp(0.5rem, 2vw + 0.5rem, .8rem)",  height: '1em' }}
         >
           {imageObject.date}
         </div>
@@ -108,6 +108,8 @@ const ImageFigure = (imageObject: RetrievalObject) => {
             fontSize: "clamp(0.5rem, 2vw + 0.5rem, .8rem)",
             maxHeight: "100px",
             overflowY: "auto",
+            height: '5.5em',
+            textOverflow: 'ellipsis'
           }}
         >
           {imageObject.description}
