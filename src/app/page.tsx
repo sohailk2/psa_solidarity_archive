@@ -35,7 +35,7 @@ export default function Home() {
         <br></br>
         Your submission may be featured in an online gallery or a physical
         installation. We will not be using any personal/identifying data when
-        publishing works. Submission deadline: July 27, 2024
+        publishing works.
         <br></br>
         <br></br>
         If you have any questions, please contact:
