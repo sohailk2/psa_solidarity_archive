@@ -40,12 +40,17 @@ const DialogBox = ({ triggerImage, fullImageSrc }: DialogBoxProps) => {
               </div>
             </div>
           )}
-          <Image
+          <img
             src={fullImageSrc}
             alt="Full size image"
-            layout="fill"
-            objectFit="contain"
             onLoad={() => setSkeletonState(false)}
+            style={{
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain',
+            }}
           />
         </div>
       </DialogContent>
@@ -53,12 +58,39 @@ const DialogBox = ({ triggerImage, fullImageSrc }: DialogBoxProps) => {
   );
 };
 
-const getDisplayLinkFromShareableLink = (shareUrl: string) => {
-  return shareUrl.replace("open?", "uc?export=view&");
+const extractFileIdFromShareableLink = (shareUrl: string): string => {
+  let fileId = "";
+  
+  if (shareUrl.includes("/d/")) {
+    // Format: https://drive.google.com/file/d/FILE_ID/view?usp=sharing
+    fileId = shareUrl.split("/d/")[1].split("/")[0];
+  } else if (shareUrl.includes("id=")) {
+    // Format: https://drive.google.com/open?id=FILE_ID
+    fileId = shareUrl.split("id=")[1].split("&")[0];
+  }
+  
+  return fileId;
+};
+
+const getThumbnailLink = (shareUrl: string) => {
+  const fileId = extractFileIdFromShareableLink(shareUrl);
+  if (!fileId) return shareUrl; // fallback to original
+  
+  // Proxy thumbnail through our backend to avoid rate limiting
+  return `/api/image?id=${fileId}&size=w800`;
+};
+
+const getFullQualityLink = (shareUrl: string) => {
+  const fileId = extractFileIdFromShareableLink(shareUrl);
+  if (!fileId) return shareUrl; // fallback to original
+  
+  // Proxy full quality through our backend to avoid rate limiting
+  return `/api/image?id=${fileId}`;
 };
 
 const ImageFigure = (imageObject: RetrievalObject) => {
-  const viewURL = getDisplayLinkFromShareableLink(imageObject.url);
+  const thumbnailURL = getThumbnailLink(imageObject.url);
+  const fullQualityURL = getFullQualityLink(imageObject.url);
   return (
     <figure
       key={imageObject.url}
@@ -68,27 +100,23 @@ const ImageFigure = (imageObject: RetrievalObject) => {
       <div className="relative w-full h-0 pb-[100%] overflow-hidden">
         <DialogBox
           triggerImage={
-            <Image
-              // src={imageObject.url}
-              // Drive Link: https://github.com/orgs/community/discussions/86986#discussioncomment-8118482
-              // src='https://drive.google.com/uc?export=view&id=1PIAdMX8vh00yO4Yf4U0R9WQfFv3-diNT'
-              // for thumbnail: display this -> speed up load times for the website
-              // https://stackoverflow.com/questions/25648388/permanent-links-to-thumbnails-in-google-drive-api
-              src={viewURL}
+            <img
+              src={thumbnailURL}
               alt={imageObject.description}
+              loading="lazy"
+              referrerPolicy="no-referrer"
               className="absolute top-0 left-0 w-full h-full object-cover"
-              width={300}
-              height={300}
             />
+
           }
-          fullImageSrc={viewURL}
+          fullImageSrc={fullQualityURL}
         />
       </div>
       <figcaption className="pt-2 text-xs text-muted-foreground">
         Location{" "}
         <div
           className="text-foreground"
-          style={{ fontSize: "clamp(0.5rem, 2vw + 0.5rem, .8rem)", height: '2.5em', textOverflow: 'ellipsis', overflow: 'hidden',  }}
+          style={{ fontSize: "clamp(0.5rem, 2vw + 0.5rem, .8rem)", height: '2.5em', textOverflow: 'ellipsis', overflow: 'hidden', }}
         >
           {imageObject.location}
         </div>
@@ -96,7 +124,7 @@ const ImageFigure = (imageObject: RetrievalObject) => {
         Date{" "}
         <div
           className="text-foreground"
-          style={{ fontSize: "clamp(0.5rem, 2vw + 0.5rem, .8rem)",  height: '1em' }}
+          style={{ fontSize: "clamp(0.5rem, 2vw + 0.5rem, .8rem)", height: '1em' }}
         >
           {imageObject.date}
         </div>
