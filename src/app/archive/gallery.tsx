@@ -46,6 +46,7 @@ const DialogBox = ({ triggerImage, fullImageSrc }: DialogBoxProps) => {
             layout="fill"
             objectFit="contain"
             onLoad={() => setSkeletonState(false)}
+            unoptimized
           />
         </div>
       </DialogContent>
@@ -79,6 +80,7 @@ const ImageFigure = (imageObject: RetrievalObject) => {
               className="absolute top-0 left-0 w-full h-full object-cover"
               width={300}
               height={300}
+              unoptimized
             />
           }
           fullImageSrc={viewURL}
