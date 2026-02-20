@@ -11,12 +11,13 @@ interface NavBarLink {
 const navBarLinks = [
   { linkText: "about", href: "/" },
   { linkText: "archive", href: "/archive" },
-  { linkText: "submit", href: "https://forms.gle/HmCyG4P1Ytbg9uSG9", target: "_blank" }
+  { linkText: "submit", href: "https://forms.gle/HmCyG4P1Ytbg9uSG9", target: "_blank" },
+  { linkText: "order a post card!", href: "https://docs.google.com/forms/d/e/1FAIpQLSfOTJTp9LrVmYM8vEyL9AqRQpDqkdIu7gvFODVf6VxMNSdumg/viewform?pli=1", target: "_blank"}
 ];
 
 const StyledLink = ({ navBarLink }: { navBarLink: NavBarLink }) => {
   return (
-    <li key={navBarLink.href} className="c-nav__item px-2">
+    <li key={navBarLink.href} className="c-nav__item px-4 m-1 py-2 whitespace-nowrap flex items-center rounded-full bg-white/30 hover:bg-white/50 transition-colors">
       <Link href={navBarLink.href} target={navBarLink.target}>
         <strong>
           {navBarLink.linkText}
