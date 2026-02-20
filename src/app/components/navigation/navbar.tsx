@@ -17,7 +17,7 @@ const navBarLinks = [
 
 const StyledLink = ({ navBarLink }: { navBarLink: NavBarLink }) => {
   return (
-    <li key={navBarLink.href} className="c-nav__item px-4 m-1 py-2 whitespace-nowrap flex items-center rounded-full bg-white/30 hover:bg-white/50 transition-colors">
+    <li key={navBarLink.href} className="c-nav__item px-4 m-1 whitespace-nowrap flex items-center rounded-full bg-white/30 hover:bg-white/50 transition-colors">
       <Link href={navBarLink.href} target={navBarLink.target}>
         <strong>
           {navBarLink.linkText}
