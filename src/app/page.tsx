@@ -10,11 +10,13 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import Link from "next/link";
+import GalleryInfo from "@/components/gallery-info";
 
 export default function Home() {
   return (
     <div>
       <br></br>
+      <GalleryInfo />
       <p className="text-xl primary-foreground">
         The Palestine Solidarity Archive aims to preserve and document the history and memory of Palestinians,
         the resistance movement, and global expressions of solidarity through
